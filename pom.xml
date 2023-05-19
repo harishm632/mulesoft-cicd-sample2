@@ -32,23 +32,19 @@
 				<configuration>
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
-						<muleVersion>${app.runtime}</muleVersion>
+						<muleVersion>4.4.0</muleVersion>
 						<username>hareeshm632</username>
 						<password>Abcdfg@2024</password>
-						<applicationName>${artifactId}</applicationName>
-						<businessGroupId>a0501f0b-c004-4e6b-b65b-9d58cb0ae7b1</businessGroupId>
+						<applicationName>mulesoft-cicd-sample2</applicationName>
 						<environment>Sandbox</environment>
 						<workerType>MICRO</workerType>
-						<connectedAppClientId>4e0f71ed9c78464f9bedf6c41120eb1f</connectedAppClientId>
-			            <connectedAppClientSecret>f1592628398F4eDB822A319B77DD3cbc</connectedAppClientSecret>
-			            <connectedAppGrantType>client_credentials</connectedAppGrantType>
-			            <objectStoreV2>true</objectStoreV2>
-			            <region>us-east-2</region>
+						<objectStoreV2>true</objectStoreV2>
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
@@ -63,6 +59,7 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>
+
 	<repositories>
 		<repository>
 			<id>anypoint-exchange-v3</id>
