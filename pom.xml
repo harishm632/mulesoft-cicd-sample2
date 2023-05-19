@@ -44,13 +44,11 @@
 			            <connectedAppGrantType>client_credentials</connectedAppGrantType>
 			            <objectStoreV2>true</objectStoreV2>
 			            <region>us-east-2</region>
-
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
@@ -65,7 +63,6 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>
-
 	<repositories>
 		<repository>
 			<id>anypoint-exchange-v3</id>
