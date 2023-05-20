@@ -3,22 +3,30 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
-	<artifactId>mulesoft-cicd-sample2</artifactId>
+	<artifactId>mulesoft-cicd-sample3</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
-	<name>mulesoft-cicd-sample2</name>
+	<name>mulesoft-cicd-sample3</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<app.runtime>4.4.0-20220824</app.runtime>
-		<mule.maven.plugin.version>3.8.0</mule.maven.plugin.version>
+		<mule.maven.plugin.version>3.7.1</mule.maven.plugin.version>
 	</properties>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.2</version>
+				<configuration>
+					<skip>false</skip>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
@@ -27,24 +35,21 @@
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
-				<version>${mule.maven.plugin.version}</version>
+				<version>3.7.1</version>
 				<extensions>true</extensions>
 				<configuration>
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
-						<muleVersion>${app.runtime}</muleVersion>
+						<muleVersion>4.4.0</muleVersion>
 						<username>hareeshm632</username>
 						<password>Abcdfg@2024</password>
-						<applicationName>${artifactId}</applicationName>
-						<businessGroupId>a0501f0b-c004-4e6b-b65b-9d58cb0ae7b1</businessGroupId>
+						<applicationName>mulesoft-cicd-sample3</applicationName>
 						<environment>Sandbox</environment>
 						<workerType>MICRO</workerType>
-						<connectedAppClientId>4e0f71ed9c78464f9bedf6c41120eb1f</connectedAppClientId>
-			            <connectedAppClientSecret>f1592628398F4eDB822A319B77DD3cbc</connectedAppClientSecret>
-			            <connectedAppGrantType>client_credentials</connectedAppGrantType>
-			            <objectStoreV2>true</objectStoreV2>
-			            <region>us-east-2</region>
-
+						<objectStoreV2>true</objectStoreV2>
+						<properties>
+				          <http.port>8081</http.port>
+				        </properties>
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
@@ -63,6 +68,11 @@
 			<artifactId>mule-sockets-connector</artifactId>
 			<version>1.2.2</version>
 			<classifier>mule-plugin</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.aether</groupId>
+			<artifactId>aether-connector-basic</artifactId>
+			<version>1.1.0</version>
 		</dependency>
 	</dependencies>
 
@@ -83,13 +93,8 @@
 
 	<pluginRepositories>
 		<pluginRepository>
-			<id>mulesoft-releases</id>
-			<name>MuleSoft Releases Repository</name>
-			<layout>default</layout>
-			<url>https://repository.mulesoft.org/releases/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
+			<id>mule-public</id>
+			<url>https://repository.mulesoft.org/nexus/content/repositories/releases</url>
 		</pluginRepository>
 	</pluginRepositories>
 
